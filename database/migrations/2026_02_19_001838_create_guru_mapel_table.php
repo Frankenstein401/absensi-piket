@@ -11,15 +11,21 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('guru_piket', function (Blueprint $table) {
+        Schema::create('guru_mapel', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->enum('hari_piket', ['senin', 'selasa', 'rabu', 'kamis', 'jumat']);
 
             $table->foreignUuid('guru_id')
-                ->constrained('guru', 'id')
+                ->constrained('users', 'id')
                 ->onDelete('cascade');
 
-            $table->integer('urutan')->default(1);
+            $table->foreignUuid('mapel_id')
+                ->constrained('mapel', 'id')
+                ->onDelete('cascade');
+
+            $table->foreignUuid('kelas')
+                ->constrained('kelas', 'id')
+                ->onDelete('cascade');
+
             $table->timestamps();
         });
     }
@@ -29,6 +35,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('guru_piket');
+        Schema::dropIfExists('guru_mapel');
     }
 };

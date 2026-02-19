@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('mapel', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('kode_mapel');
+            $table->string('kode_mapel')->unique();
             $table->string('nama_mapel');
             $table->timestamps();
         });
