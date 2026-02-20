@@ -14,6 +14,13 @@ return new class extends Migration
         Schema::create('materi_pembelaran', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->id();
+            $table->foreignId('guru_mapel_id')->constrained('guru_mapel');
+            $table->string('judul_materi', 200);
+            $table->text('deskripsi')->nullable();
+            $table->date('tanggal_mulai');
+            $table->date('tanggal_selesai');
+            $table->timestamps();
         });
     }
 
