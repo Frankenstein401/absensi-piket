@@ -16,7 +16,7 @@ return new class extends Migration
             $table->enum('hari_piket', ['senin', 'selasa', 'rabu', 'kamis', 'jumat']);
 
             $table->foreignUuid('guru_id')
-                ->constrained('guru', 'id')
+                ->constrained('users', 'id')
                 ->onDelete('cascade');
 
             $table->integer('urutan')->default(1);

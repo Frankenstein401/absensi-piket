@@ -22,7 +22,7 @@ return new class extends Migration
                 ->constrained('mapel', 'id')
                 ->onDelete('cascade');
 
-            $table->foreignUuid('kelas')
+            $table->foreignUuid('kelas_id')
                 ->constrained('kelas', 'id')
                 ->onDelete('cascade');
 
